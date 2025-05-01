@@ -1,0 +1,491 @@
+/* General Styles */
+:root {
+  --primary-bg: #f0f4ff; /* Light blue gradient start */
+  --secondary-bg: #e6e0ff; /* Light purple gradient via */
+  --tertiary-bg: #dbe4ff; /* Light indigo gradient end */
+  --container-bg: #ffffff;
+  --text-color: #333333;
+  --heading-color: #1a202c;
+  --button-bg: #4caf50; /* Green */
+  --button-hover-bg: #45a049;
+  --button-text: #ffffff;
+  --link-color: #3182ce;
+  --border-color: #cbd5e0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --info-bg: #e6f7ff;
+  --info-border: #91d5ff;
+  --info-text: #1d395f;
+  --warning-bg: #fffbe6;
+  --warning-text: #d46b08;
+  --success-bg: #f6ffed;
+  --success-text: #389e0d;
+  --error-bg: #fff1f0; /* Added error background */
+  --error-text: #cf1322; /* Added error text */
+  --land-color: #6e903a;
+  --water-color: #68adcd;
+  --bridge-initial-color: rgba(139, 69, 19, 0.7); /* Brownish */
+  --bridge-crossed-color: rgba(0, 255, 0, 0.5); /* Greenish */
+  --path-color: rgba(0, 0, 255, 0.7); /* Blue */
+
+  --font-sans: 'Arial', sans-serif; /* Simple fallback */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: linear-gradient(to bottom right, var(--primary-bg), var(--secondary-bg), var(--tertiary-bg));
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.app-container {
+  background-color: var(--container-bg);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px var(--shadow-color);
+  overflow: hidden;
+  width: 100%;
+  max-width: 1000px; /* Adjust as needed */
+  min-height: 80vh; /* Ensure container has height */
+  display: flex; /* Use flex for internal layout */
+  flex-direction: column; /* Stack content vertically */
+}
+
+h1, h2, h3 {
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* Space between icon and text */
+}
+
+button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7; /* Indicate disabled state */
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Icon Styles (using SVG directly or a library like Lucide Static) */
+.icon {
+  width: 1.2em; /* Adjust size as needed */
+  height: 1.2em;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0; /* Prevent icons from shrinking */
+}
+
+
+/* Screen Specific Styles */
+
+/* Main Menu */
+.main-menu {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.main-menu img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.main-menu .info-box {
+  background-color: var(--info-bg);
+  border: 1px solid var(--info-border);
+  color: var(--info-text);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  text-align: left;
+}
+
+.main-menu .info-box h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.main-menu .info-box p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Level Select */
+.level-select {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.level-select h1 {
+  margin-bottom: 2rem;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Slightly wider cards */
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+
+.level-card {
+  background-color: #f9f9f9;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem 1rem; /* More padding */
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative; /* For checkmark/lock positioning */
+  display: flex; /* Use flex for internal layout */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  min-height: 120px; /* Ensure minimum height */
+  box-shadow: 0 2px 4px var(--shadow-color);
+  background: linear-gradient(145deg, #ffffff, #e6e9f0); /* Subtle gradient */
+  color: var(--text-color); /* Default text color */
+}
+
+/* Available Level Card */
+.level-card.available {
+    /* Default styles are for available */
+    border-color: var(--border-color);
+    background: linear-gradient(145deg, #ffffff, #e6e9f0);
+    color: var(--text-color);
+}
+.level-card.available:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px var(--shadow-color);
+  border-color: var(--link-color);
+}
+
+
+/* Completed Level Card */
+.level-card.completed {
+  background: linear-gradient(145deg, var(--success-bg), #d9f7be); /* Light green gradient */
+  border-color: var(--success-text);
+  color: var(--success-text); /* Green text for completed */
+}
+.level-card.completed .level-number,
+.level-card.completed .level-name {
+    color: var(--success-text);
+}
+.level-card.completed .checkmark {
+  color: var(--success-text);
+}
+.level-card.completed:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px var(--shadow-color);
+    border-color: var(--success-text); /* Keep green border on hover */
+}
+
+
+/* Locked Level Card */
+.level-card.locked {
+  background: linear-gradient(145deg, #f0f0f0, #e0e0e0); /* Grey gradient */
+  border-color: #cccccc;
+  color: #888888; /* Grey text for locked */
+  cursor: not-allowed;
+  opacity: 0.8;
+  box-shadow: none; /* No shadow for locked */
+}
+.level-card.locked .level-number,
+.level-card.locked .level-name {
+    color: #888888;
+}
+.level-card.locked .lock-icon {
+    color: #888888;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em; /* Make lock icon larger */
+    opacity: 0.5;
+}
+.level-card.locked:hover {
+    transform: none; /* No hover effect for locked */
+    box-shadow: none;
+    border-color: #cccccc; /* Keep grey border on hover */
+}
+
+
+.level-card .level-number {
+  font-size: 2rem; /* Larger number */
+  font-weight: bold;
+  color: var(--heading-color); /* Default color */
+  margin-bottom: 0.5rem;
+}
+
+.level-card .level-name {
+  font-size: 1.1rem; /* Slightly larger name */
+  color: var(--text-color); /* Default color */
+  font-weight: normal;
+}
+
+.level-card .checkmark {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--success-text);
+}
+.level-card .checkmark .icon {
+  width: 1.4em;
+  height: 1.4em;
+}
+
+.level-card .lock-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #888888; /* Default lock icon color */
+}
+.level-card .lock-icon .icon {
+    width: 1.4em;
+    height: 1.4em;
+}
+
+
+.level-select .back-button {
+  margin-top: 1.5rem; /* More space */
+  background-color: #f0f0f0;
+  color: #555;
+}
+.level-select .back-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Game Screen */
+.game-screen {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 2rem); /* Adjust based on padding */
+  flex-grow: 1; /* Allow game screen to take available space */
+  box-sizing: border-box;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-shrink: 0; /* Prevent header from shrinking */
+  padding: 0 0.5rem;
+}
+
+.game-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: center;
+  flex-grow: 1; /* Allow title to take space */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 0.5rem; /* Add padding around title */
+}
+
+.game-header button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.game-header .back-button {
+   background-color: #f0f0f0;
+   color: #555;
+}
+.game-header .back-button:hover {
+   background-color: #e0e0e0;
+}
+.game-header .reset-button {
+   background-color: #ffc107; /* Yellow */
+   color: #333;
+}
+.game-header .reset-button:hover {
+   background-color: #ffb300;
+}
+
+
+.svg-container {
+  flex-grow: 1; /* Allow SVG container to fill remaining space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Important for SVG scaling */
+  border: 2px solid var(--info-border);
+  border-radius: 8px;
+  background-color: #f8f9fa; /* Light grey background */
+  margin-bottom: 0.75rem; /* Space below SVG */
+  position: relative; /* Needed for absolute positioning of messages? */
+  min-height: 300px; /* Ensure minimum height */
+}
+
+.game-svg {
+  display: block; /* Remove extra space below SVG */
+  max-width: 100%;
+  max-height: 100%;
+  /* preserveAspectRatio="xMidYMid meet" is set in JS */
+  touch-action: none; /* Prevent default touch actions like scroll/zoom */
+  cursor: grab; /* Default cursor */
+}
+
+.game-svg.drawing {
+  cursor: crosshair; /* Cursor while drawing */
+}
+
+/* SVG specific styles (applied via JS) */
+.game-svg [data-terrain="land"] {
+  /* Fill is set directly in SVG or via JS if needed */
+  /* stroke: #5a7a2a; Slightly darker border for land */
+  /* stroke-width: 0.5; */
+}
+.game-svg [data-terrain="water"] {
+ /* Fill is set directly in SVG */
+}
+.game-svg rect[id^="bridge-"] {
+  fill: var(--bridge-initial-color);
+  cursor: default; /* Bridges themselves aren't directly interactive */
+  pointer-events: all; /* Ensure bridges are considered for elementFromPoint */
+  transition: fill 0.3s ease; /* Smooth color transition */
+}
+.game-svg rect[id^="bridge-"].crossed {
+  fill: var(--bridge-crossed-color);
+}
+.game-svg .drawn-path {
+  fill: none;
+  stroke: var(--path-color);
+  stroke-width: 5; /* Adjust as needed, maybe relative to viewBox */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none; /* Path shouldn't interfere with interaction */
+}
+
+
+.game-info {
+  flex-shrink: 0; /* Prevent info area from shrinking */
+  padding: 0 0.5rem;
+  text-align: center;
+}
+
+.message-area {
+  min-height: 2.5em; /* Reserve space for messages */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem; /* Add some space below message */
+}
+
+.message {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden; /* Use visibility for better transition handling */
+  transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s; /* Delay visibility change */
+}
+
+.message.visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out, visibility 0s linear 0s;
+}
+
+.message.success {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+  border: 1px solid var(--success-text);
+}
+
+.message.warning {
+  background-color: var(--warning-bg);
+  color: var(--warning-text);
+  border: 1px solid var(--warning-text);
+}
+
+/* Added error message style */
+.message.error {
+  background-color: var(--error-bg);
+  color: var(--error-text);
+  border: 1px solid var(--error-text);
+}
+
+
+.bridge-counter {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.completion-actions {
+  margin-top: 0.5rem;
+}
+.completion-actions button {
+  background-color: var(--link-color);
+}
+.completion-actions button:hover {
+  background-color: #2b6cb0;
+}
+
+/* Utility Classes */
+.hidden {
+  display: none !important; /* Use important to override potential conflicts */
+}
