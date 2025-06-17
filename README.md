@@ -94,10 +94,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-## ✉️ Contact
-
-Project Link: [https://github.com/yourusername/eulerin-yolu](https://github.com/yourusername/eulerin-yolu)
-
 ## 🙏 Acknowledgments
 
 - Inspired by Leonhard Euler's work on graph theory
