@@ -6,8 +6,6 @@
 
 A captivating puzzle game based on the famous Seven Bridges of Königsberg problem, where players must find an Eulerian path through various levels of increasing complexity.
 
-![Game Screenshot](public/svgs/konigsberg.svg)
-
 ## 🌟 Features
 
 - 🧩 Multiple challenging levels based on graph theory
