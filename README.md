@@ -97,7 +97,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - Inspired by Leonhard Euler's work on graph theory
 - Special thanks to all contributors who helped with testing and feedback
 - Thanks to the open source community for the amazing tools and resources
-
----
-
-Made with ❤️ and JavaScript
